@@ -26,5 +26,23 @@ namespace TripRoutes.Domain.Models
             Routes = Routes.Concat(path.Routes);
             Cost += path.Cost;
         }
+
+        public override string ToString()
+        {
+            StringBuilder pathString = new StringBuilder();
+            
+            foreach (var route in Routes.Select((value, index) => (value, index)))
+            {
+                if (route.index == Routes.Count() - 1)
+                {
+                    pathString.Append($"{route.value.Arrival}");
+                }
+                else
+                {
+                    pathString.Append($"{route.value.Departure} - ");
+                }
+            }
+            return pathString.ToString();
+        }
     }
 }
