@@ -11,6 +11,7 @@ namespace TripRoutes.Domain.Interfaces
     public interface IRouteService
     {
         Task<bool> AddRoute(RouteRequest route);
+        Task<TripPathsResponse> GetPossiblePaths(string departure, string arrival);
         Task<string> GetCheaperPath(string departure, string arrival);
     }
 }

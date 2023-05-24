@@ -8,14 +8,14 @@ namespace TripRoutes.Domain.Models.Mappers
     {
         public PathMapper()
         {
-            CreateMap<TripPath, TripPathResponse>()
+            CreateMap<IEnumerable<TripPath>, TripPathsResponse>()
                 .ForMember(
-                    dest => dest.TripPath,
-                    opt => opt.MapFrom(src => src.Routes.ToString())
+                    dest => dest.Total,
+                    opt => opt.MapFrom(src => src.Count())
                     )
                 .ForMember(
-                    dest => dest.Cost,
-                    opt => opt.MapFrom(src => src.Cost)
+                    dest => dest.Trips,
+                    opt => opt.MapFrom(src => src.Select(value => value.ToString()))
                     );
         }
     }

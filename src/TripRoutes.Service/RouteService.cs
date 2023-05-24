@@ -34,6 +34,37 @@ namespace TripRoutes.Service
             throw new NotImplementedException();
         }
 
+        public async Task<TripPathsResponse> GetPossiblePaths(string departure, string arrival)
+        {
+            if (string.IsNullOrEmpty(departure) || string.IsNullOrEmpty(arrival))
+            {
+                throw new TripRoutesException(400, "Departure or arrival not found!");
+            }
+            if (!await _routeRepository.ValidateArrivalAsync(arrival))
+            {
+                throw new TripRoutesException(400, $"Arrival '{arrival}' not valid.");
+            }
+            if (!await _routeRepository.ValidateDepartureAsync(departure))
+            {
+                throw new TripRoutesException(400, $"Departure '{departure}' not valid.");
+            }
+
+            var destinies = await GetPossiblePathAsync(departure, arrival);
+
+            if (destinies is null || destinies.Count() == 0)
+            {
+                return null;
+            }
+
+            destinies
+                .Where(o => o.Routes != null || o.Routes.Count() != 0)
+                .OrderBy(o => o.Cost);
+
+            var response = _mapper.Map<TripPathsResponse>(destinies);
+
+            return response;
+        }
+
         public async Task<string> GetCheaperPath(string departure, string arrival)
         {
             if (string.IsNullOrEmpty(departure) || string.IsNullOrEmpty(arrival))
@@ -61,11 +92,12 @@ namespace TripRoutes.Service
                 .OrderBy(o => o.Cost)
                 .FirstOrDefault();
 
-            return _mapper.Map<TripPathResponse>(destiny).ToString();
+            return _mapper.Map<TripPathsResponse>(destiny).ToString();
         }
 
         private async Task<IEnumerable<TripPath>> GetPossiblePathAsync(string departure, string arrival)
         {
+            // TODO: validate process
             var response = new List<TripPath>();
 
             var routes = await _routeRepository.GetRoutesByDepartureAsync(departure);

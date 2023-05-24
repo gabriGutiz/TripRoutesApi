@@ -43,12 +43,38 @@ namespace TripRoutes.Api.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpGet("/{departure}/{arrival}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<string>> Get([Required][FromQuery] string departure, [Required][FromQuery] string arrival)
+        public async Task<ActionResult<TripPathsResponse>> Get([Required][FromRoute] string departure, [Required][FromRoute] string arrival)
+        {
+            try
+            {
+                var route = await _routeService.GetPossiblePaths(departure, arrival);
+
+                if (route is null)
+                    return NotFound();
+
+                return Ok(route);
+            }
+            catch (TripRoutesException ex)
+            {
+                return StatusCode(ex.CodigoHttp, ex.Error);
+            }
+            catch (Exception ex)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
+
+        [HttpGet("/{departure}/{arrival}/cheaper")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<string>> GetCheaper([Required][FromRoute] string departure, [Required][FromRoute] string arrival)
         {
             try
             {

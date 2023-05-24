@@ -42,6 +42,9 @@ namespace TripRoutes.Domain.Models
                     pathString.Append($"{route.value.Departure} - ");
                 }
             }
+
+            pathString.Append($" with cost **${Cost}**");
+
             return pathString.ToString();
         }
     }
