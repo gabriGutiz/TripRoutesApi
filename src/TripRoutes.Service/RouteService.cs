@@ -92,12 +92,11 @@ namespace TripRoutes.Service
                 .OrderBy(o => o.Cost)
                 .FirstOrDefault();
 
-            return _mapper.Map<TripPathsResponse>(destiny).ToString();
+            return destiny.ToString();
         }
 
         private async Task<IEnumerable<TripPath>> GetPossiblePathAsync(string departure, string arrival)
         {
-            // TODO: validate process
             var response = new List<TripPath>();
 
             var routes = await _routeRepository.GetRoutesByDepartureAsync(departure);
@@ -127,8 +126,13 @@ namespace TripRoutes.Service
 
                 foreach (TripPath newRoute in newRoutes)
                 {
-                    tripPath.SumPaths(newRoute);
-                    response.Add(tripPath);
+                    TripPath newTripPath = new TripPath
+                    {
+                        Cost = tripPath.Cost,
+                        Routes = tripPath.Routes
+                    };
+                    newTripPath.SumPaths(newRoute);
+                    response.Add(newTripPath);
                 }
             }
             return response;
