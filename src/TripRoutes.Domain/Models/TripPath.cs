@@ -35,7 +35,7 @@ namespace TripRoutes.Domain.Models
             {
                 if (route.index == Routes.Count() - 1)
                 {
-                    pathString.Append($"{route.value.Arrival}");
+                    pathString.Append($"{route.value.Departure} - {route.value.Arrival}");
                 }
                 else
                 {
