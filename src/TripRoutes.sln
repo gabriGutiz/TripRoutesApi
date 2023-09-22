@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33627.172
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TripRoutes", "TripRoutes.Api\TripRoutes.Api.csproj", "{229819AC-6B33-440E-8649-F6144552953E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TripRoutes.Data", "TripRoutes.Data\TripRoutes.Data.csproj", "{C23A5F0A-F7E5-4E78-9058-50B2FE9064BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TripRoutes.Domain", "TripRoutes.Domain\TripRoutes.Domain.csproj", "{812ED2C3-5A88-4184-9005-15ECFF13E1A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TripRoutes.Service", "TripRoutes.Service\TripRoutes.Service.csproj", "{C497C9E1-92F0-41E9-9C7C-0570CB611BCE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TripRoutes.Worker", "TripRoutes.Worker\TripRoutes.Worker.csproj", "{93665540-1A94-488F-A3EB-5A2ACEE73285}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TripRoutes.Tests", "TripRoutes.Tests\TripRoutes.Tests.csproj", "{295D272E-2D37-47BC-9367-44F1910680DF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{229819AC-6B33-440E-8649-F6144552953E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{229819AC-6B33-440E-8649-F6144552953E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{229819AC-6B33-440E-8649-F6144552953E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{229819AC-6B33-440E-8649-F6144552953E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C23A5F0A-F7E5-4E78-9058-50B2FE9064BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C23A5F0A-F7E5-4E78-9058-50B2FE9064BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C23A5F0A-F7E5-4E78-9058-50B2FE9064BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C23A5F0A-F7E5-4E78-9058-50B2FE9064BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{812ED2C3-5A88-4184-9005-15ECFF13E1A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{812ED2C3-5A88-4184-9005-15ECFF13E1A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{812ED2C3-5A88-4184-9005-15ECFF13E1A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{812ED2C3-5A88-4184-9005-15ECFF13E1A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C497C9E1-92F0-41E9-9C7C-0570CB611BCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C497C9E1-92F0-41E9-9C7C-0570CB611BCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C497C9E1-92F0-41E9-9C7C-0570CB611BCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C497C9E1-92F0-41E9-9C7C-0570CB611BCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93665540-1A94-488F-A3EB-5A2ACEE73285}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93665540-1A94-488F-A3EB-5A2ACEE73285}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93665540-1A94-488F-A3EB-5A2ACEE73285}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93665540-1A94-488F-A3EB-5A2ACEE73285}.Release|Any CPU.Build.0 = Release|Any CPU
+		{295D272E-2D37-47BC-9367-44F1910680DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{295D272E-2D37-47BC-9367-44F1910680DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{295D272E-2D37-47BC-9367-44F1910680DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{295D272E-2D37-47BC-9367-44F1910680DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4B5D1D4B-C088-47EC-A66B-EACE9ECCE1C1}
+	EndGlobalSection
+EndGlobal
